@@ -60,7 +60,7 @@ class RaidEventsController < ApplicationController
 			end
 		end
 		
-		current_high = 0 if (winners.size == 1)
+		current_high = 0 if (sorted_bids.size == 1)
 		
 		winner = winners[rand(winners.size)]
 		
