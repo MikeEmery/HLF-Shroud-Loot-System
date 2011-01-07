@@ -23,6 +23,7 @@
 		<th>Cataclysm Funbucks</th>
 		<th>Attended</th>
 		<th>On Time</th>
+		<th>Left Early</th>
 		<th>Bid</th>
 	</tr>
 	<% @guild_members.each do |member|%>
@@ -30,7 +31,8 @@
 		<td><span class="member_name"><%= member.name %></span></td>
 		<td><span class="member_points"><%= member.points %></span></td>
 		<td><input type="checkbox" value="<%=member.name%>" name="attended[]" class="attendend"/></td>
-		<td><input type="checkbox" value="<%=member.name%>" named="on_time[]" class="attended"/></td>
+		<td><input type="checkbox" value="<%=member.name%>" name="on_time[]" class="attended"/></td>
+		<td><input type="checkbox" value="<%=member.name%>" name="left_early[]" class="attended"/></td>
 		<td>
 			<input type="radio" value="lfc" name="bids[<%=member.name%>]" class="bid">LFC
 			<input type="radio" value="half" name="bids[<%=member.name%>]" class="bid">Half

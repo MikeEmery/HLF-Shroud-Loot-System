@@ -5,7 +5,9 @@ class GuildMembersController < ApplicationController
 	
 	def create
 		@guild_member = GuildMember.new(params[:guild_member])
-		@guild_member.save
+		unless(@guild_member.save)
+			flash[:error] = @guild_member.errors.map{ |k, v| "#{k} #{v}" }.join("<br/>").html_safe
+		end
 		
 		redirect_to guild_members_path
 	end
