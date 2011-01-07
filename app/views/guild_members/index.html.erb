@@ -1,0 +1,53 @@
+<%= content_for :head do %>
+<style type="text/css" media="screen">
+	.highlighted {
+		background: #F2DEBB;
+	}
+</style>
+<script type="text/javascript" charset="utf-8">
+	$(function() {
+		$('.member_row').hover( function() {
+			$(this).addClass('highlighted')
+			console.log('test')
+		}, function() {
+			$(this).removeClass('highlighted')
+		})
+	})
+</script>
+<% end %>
+<h1>Horde Love Flag</h1>
+<%= form_tag raid_event_path %>
+<table method="get">
+	<tr>
+		<th>Name</th>
+		<th>Cataclysm Funbucks</th>
+		<th>Attended</th>
+		<th>On Time</th>
+		<th>Bid</th>
+	</tr>
+	<% @guild_members.each do |member|%>
+	<tr class="member_row">
+		<td><span class="member_name"><%= member.name %></span></td>
+		<td><span class="member_points"><%= member.points %></span></td>
+		<td><input type="checkbox" value="<%=member.name%>" name="attended[]" class="attendend"/></td>
+		<td><input type="checkbox" value="<%=member.name%>" named="on_time[]" class="attended"/></td>
+		<td>
+			<input type="radio" value="lfc" name="bids[<%=member.name%>]" class="bid">LFC
+			<input type="radio" value="half" name="bids[<%=member.name%>]" class="bid">Half
+		</td>
+	</tr>
+	<% end %>
+</table>
+<div>
+<%= submit_tag "Update", :style => "float:right"%>
+</div>
+</form>
+<div>
+	<%= form_for GuildMember.new do |f| %>
+	<div>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+		<%= submit_tag "Add"%>
+	</div>
+	<% end %>
+</div>

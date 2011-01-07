@@ -1,0 +1,2 @@
+module RaidEventsHelper
+end
