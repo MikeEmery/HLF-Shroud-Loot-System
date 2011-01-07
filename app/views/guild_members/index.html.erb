@@ -14,6 +14,12 @@
 			$(this).removeClass('highlighted')
 		})
 	})
+	
+<% unless logged_in? %>
+$(function() {
+	$('input').attr('disabled', 'disabled');
+})
+<% end %> 
 </script>
 <% end %>
 <%= form_tag raid_event_path %>
@@ -40,10 +46,13 @@
 	</tr>
 	<% end %>
 </table>
+<% if logged_in? %>
 <div>
 <%= submit_tag "Update", :style => "float:right"%>
 </div>
+<% end %>
 </form>
+<% if logged_in? %>
 <div>
 	<%= form_for GuildMember.new do |f| %>
 	<div>
@@ -53,3 +62,4 @@
 	</div>
 	<% end %>
 </div>
+<% end %>

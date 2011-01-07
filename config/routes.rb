@@ -58,4 +58,9 @@ Hlf::Application.routes.draw do
 
 	resources :guild_members
 	resource :raid_event
+	resource :session, :controller => 'user_sessions' do
+		collection do
+			get :end
+		end
+	end
 end

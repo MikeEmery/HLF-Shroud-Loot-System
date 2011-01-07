@@ -1,4 +1,7 @@
 class RaidEventsController < ApplicationController
+	
+	before_filter :require_logged_in
+	
 	def create
 		params[:attended] ||= []
 		params[:on_time] ||= []
@@ -31,7 +34,7 @@ class RaidEventsController < ApplicationController
 			elsif(bid_type == "half")
 				
 				next if member.points <= 0
-				bid_points = member.points / 2
+				bid_points = (member.points / 2).ceil
 			end
 			
 			bids[member.name] = bid_points
@@ -57,11 +60,13 @@ class RaidEventsController < ApplicationController
 			end
 		end
 		
+		current_high = 0 if (winners.size == 1)
+		
 		winner = winners[rand(winners.size)]
 		
 		guild_member = GuildMember.find_by_name(winner)
 		guild_member.decrement!(:points, current_high)
 		
-		flash[:success] = winner +" won the item."
+		flash[:success] = "<strong>#{winner}</strong> won the item.".html_safe
 	end
 end
