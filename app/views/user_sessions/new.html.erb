@@ -1,5 +1,6 @@
-<%= form_tag session_path do %>
-<%= label_tag :password %>
-<%= password_field_tag :password%>
+<%= form_for @user_session, :url => session_path do |f| %>
+<%= f.hidden_field :login %>
+<%= f.label :password %>
+<%= f.password_field :password %>
 <%= submit_tag "Log In"%>
 <% end %>

@@ -9,6 +9,7 @@ gem 'mysql2'
 gem "nifty-generators", :group => :development
 gem "flutie", "~> 1.1"
 gem 'jquery-rails', '>= 0.2.6'
+gem 'authlogic', :git => 'git://github.com/binarylogic/authlogic.git'
 
 # Use unicorn as the web server
 # gem 'unicorn'
