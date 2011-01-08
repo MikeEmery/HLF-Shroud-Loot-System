@@ -22,7 +22,7 @@ $(function() {
 <% end %> 
 </script>
 <% end %>
-<%= form_tag raid_event_path %>
+<%= form_tag raid_events_path %>
 <table method="get">
 	<tr>
 		<th>Name</th>
@@ -34,7 +34,7 @@ $(function() {
 	</tr>
 	<% @guild_members.each do |member|%>
 	<tr class="member_row">
-		<td><span class="member_name"><%= member.name %></span></td>
+		<td><span class="member_name"><%= link_to member.name, guild_member_path(member) %></span></td>
 		<td><span class="member_points"><%= member.points %></span></td>
 		<td><input type="checkbox" value="<%=member.name%>" name="attended[]" class="attendend"/></td>
 		<td><input type="checkbox" value="<%=member.name%>" name="on_time[]" class="attended"/></td>

@@ -3,6 +3,12 @@ class GuildMembersController < ApplicationController
 		@guild_members = GuildMember.order("name")
 	end
 	
+	def show
+		@guild_member = GuildMember.find(params[:id])
+		
+		@point_adjustments = @guild_member.point_adjustments
+	end
+	
 	def create
 		@guild_member = GuildMember.new(params[:guild_member])
 		unless(@guild_member.save)

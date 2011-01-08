@@ -57,7 +57,7 @@ Hlf::Application.routes.draw do
   # match ':controller(/:action(/:id(.:format)))'
 
 	resources :guild_members
-	resource :raid_event
+	resources :raid_events
 	resource :session, :controller => 'user_sessions' do
 		collection do
 			get :end

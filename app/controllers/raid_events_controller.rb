@@ -63,7 +63,7 @@ class RaidEventsController < ApplicationController
 		winner = winners[rand(winners.size)]
 		
 		guild_member = GuildMember.find_by_name(winner)
-		guild_member.decrement!(:points, current_high)
+		guild_member.win_item(current_high)
 		
 		flash[:success] = "<strong>#{winner}</strong> won the item.".html_safe
 	end

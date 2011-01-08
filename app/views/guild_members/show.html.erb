@@ -1,0 +1,15 @@
+<% title "Point Adjustment History for #{@guild_member.name}"%>
+<table>
+<tr>
+	<th>Reason</th>
+	<th>Amount</th>
+	<th>Date</th>
+</tr>
+<% @point_adjustments.each do |adj| %>
+<tr>
+	<td><%= adj.reason %></td>
+	<td><%= adj.amount %></td>
+	<td><%= adj.created_at %></td>
+</tr>
+<% end %>
+</table>
