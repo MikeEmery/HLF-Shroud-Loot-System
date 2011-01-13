@@ -14,10 +14,13 @@
 			$(this).removeClass('highlighted')
 		})
 	})
-	
 <% unless logged_in? %>
 $(function() {
 	$('input').attr('disabled', 'disabled');
+
+	$('.show_link').click(function() {
+		$('#explanation').show()
+	})
 })
 <% end %> 
 </script>
@@ -63,3 +66,41 @@ $(function() {
 	<% end %>
 </div>
 <% end %>
+<a href="#" class="show_link">How does this work?</a>
+<div id="explanation" style="display:none">
+<p>
+All members start with 40 points on their first raid.
+</p>
+<p>
+Attending a raid for it's full duration awards members with 10 points after the raid. If anyone must leave before the scheduled end time, they will only be awarded 5 points. 2 bonus points will be award at the start of the raid for members who are online and ready to go at the raid start time. If any member is going to be up to 15 minute late, they may contact any of the guild officers prior to the raid start and still be eligible for the bonus. Personal contact information can be requested from the guild officers. 15 minutes after the start time, if any members are still not online their spot in the raid becomes forfeit.
+</p>
+<p>
+Items are awarded to members who bid the most points. There are two types of bids:
+</p>
+<ol>
+<li>
+A member may bid half their points on an item. A member is only eligible to bid if they have greater than 20 points. If a member bids half their points, but is uncontested, they will only be deducted the Lower Fixed Cost (otherwise known as the LFC).
+</li>
+<li>
+If members do not wish to bid half their points, or are ineligible, but still wish to obtain the item, they may bid the Lower Fixed Cost. The LFC is 10 points. Members are able to go into negative point values using the LFC.
+</li>
+</ol>
+<p>
+The item is always awarded to whoever bid the most points, in the event of a tie, the winner is determined randomly.
+</p>
+<p>
+When an item drops, all loot items will be posted. After a moment, one item will be posted and the loot master will ask for your bids. Members will then reply “LFC” or “Bid”.
+</p>
+<p>
+Replying “LFC” means you are only willing to pay the LFC cost for the item, even if you are eligible to bid. If someone bids half their points against you, you will automatically lose the item. If no one bids, but there are multiple LFC bids, then the winner will be chosen randomly and be deducted 10 points. If you are uncontested, you will win the item and be deducted 10 points.
+</p>
+<p>
+Replying “Bid” means you are willing to bid half your points for the item, the bidder with the highest points will win the item and be deducted half their points. In the event of multiple bidders with the same points, the winner will be chosen at random, and be deducted half their points. If you are uncontested, you will only be deducted the LFC of 10 points.
+</p>
+<p>
+For the time being, if neither an offer of LFC nor Bid is presented for an item, it will be sharded.  This policy may change in future as maelstrom crystals lose value.
+</p>
+<p>
+If we are forced to recruit a PUG for our raids, any member who wishes an item that the PUG also  wants will be forced into a LFC roll. Otherwise, the loot system will work as normal. 
+</p>
+</div>
