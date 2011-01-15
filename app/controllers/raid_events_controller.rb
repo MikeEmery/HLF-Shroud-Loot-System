@@ -60,6 +60,10 @@ class RaidEventsController < ApplicationController
 			end
 		end
 		
+		if(sorted_bids.size == 1)
+			current_high = 10
+		end
+		
 		winner = winners[rand(winners.size)]
 		
 		guild_member = GuildMember.find_by_name(winner)
