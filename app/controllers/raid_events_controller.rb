@@ -80,7 +80,7 @@ class RaidEventsController < ApplicationController
 		winner = sorted_rolls.first[1]
 		
 		roll_text = ""
-		roll_text = "Rolls: #{sorted_rolls.inspect}" if (sorted_rolls.size > 1)
+		roll_text = "  Rolls: #{sorted_rolls.inspect}" if (sorted_rolls.size > 1)
 		
 		guild_member = GuildMember.find_by_name(winner)
 		guild_member.win_item(point_cost, sorted_rolls.inspect.to_s)
