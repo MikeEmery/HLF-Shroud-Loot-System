@@ -64,11 +64,26 @@ class RaidEventsController < ApplicationController
 			current_high = 10
 		end
 		
-		winner = winners[rand(winners.size)]
+		calculate_winner(winners, current_high)
+	end
+	
+	def calculate_winner(winners, point_cost)
+
+		rolls = { }
+		
+		winners.each do |winner|
+			rolls[rand(10000)+1] = winner
+		end
+		
+		sorted_rolls = rolls.sort.reverse
+		
+		winner = sorted_rolls.first[1]
+		
+		roll_text = ""
+		roll_text = "Rolls: #{sorted_rolls.inspect}" if (sorted_rolls.size > 1)
 		
 		guild_member = GuildMember.find_by_name(winner)
-		guild_member.win_item(current_high)
-		
-		flash[:success] = "<strong>#{winner}</strong> won the item.".html_safe
+		guild_member.win_item(point_cost, sorted_rolls.inspect.to_s)
+		flash[:success] = ("<strong>#{winner}</strong> won the item." << roll_text).html_safe
 	end
 end

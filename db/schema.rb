@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110108141151) do
+ActiveRecord::Schema.define(:version => 20110117062946) do
 
   create_table "guild_members", :force => true do |t|
     t.string   "name"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20110108141151) do
     t.string   "reason"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "comments"
   end
 
   create_table "users", :force => true do |t|

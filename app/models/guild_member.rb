@@ -23,8 +23,8 @@ class GuildMember < ActiveRecord::Base
 		self.point_adjustments.create(:reason => "Arrived on time", :amount => amount)
 	end
 	
-	def win_item(current_high)
+	def win_item(current_high, comments = nil)
 		self.decrement!(:points, current_high)
-		self.point_adjustments.create(:reason => "Won item", :amount => -current_high)
+		self.point_adjustments.create(:reason => "Won item", :amount => -current_high, :comments => comments )
 	end
 end
