@@ -1,0 +1,12 @@
+<table>
+<% point_adjustment_summary.each_index do |i| %>
+<% adj = point_adjustment_summary[i]%>
+<tr>
+	<td><%= adj.guild_member.name %>
+	<td><%= adj.reason %></td>
+	<td><%= adj.amount %></td>
+	<td><%= adj.created_at %></td>
+	<td><%= adj.comments%></td>
+</tr>
+<% end %>
+</table>

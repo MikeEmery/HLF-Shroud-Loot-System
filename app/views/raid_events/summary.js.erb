@@ -1,0 +1,3 @@
+<% if @update_ui %>
+$('#raid_event_summary').html("<%= escape_javascript(render :partial => 'point_adjustment_summary', :object => @point_adjustments)%>")
+<% end %>
