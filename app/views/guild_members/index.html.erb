@@ -1,5 +1,6 @@
 <% title "Horde Love Flag"%>
 <%= content_for :head do %>
+<%= javascript_include_tag 'jquery.periodicalupdater' %>
 <style type="text/css" media="screen">
 	.highlighted {
 		background: #D9EFFA;
@@ -9,18 +10,22 @@
 	$(function() {
 		$('.member_row').hover( function() {
 			$(this).addClass('highlighted')
-			console.log('test')
 		}, function() {
 			$(this).removeClass('highlighted')
+		})
+		
+		$('.show_link').click(function() {
+			$('#explanation').show()
+		})
+		
+		$.PeriodicalUpdater('<%= summary_raid_events_path %>', {
+			minTimeout: 5000,
+			type: 'script'
 		})
 	})
 <% unless logged_in? %>
 $(function() {
 	$('input').attr('disabled', 'disabled');
-
-	$('.show_link').click(function() {
-		$('#explanation').show()
-	})
 })
 <% end %> 
 </script>
@@ -49,6 +54,10 @@ $(function() {
 	</tr>
 	<% end %>
 </table>
+<h3>Last 5 Point Adjustments</h3>
+<div id="raid_event_summary">
+	<%= render :partial => 'raid_events/point_adjustment_summary', :object => @point_adjustments%>
+</div>
 <% if logged_in? %>
 <div>
 <%= submit_tag "Update", :style => "float:right"%>

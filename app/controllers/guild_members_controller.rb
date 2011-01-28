@@ -1,6 +1,7 @@
 class GuildMembersController < ApplicationController
 	def index
 		@guild_members = GuildMember.order("name")
+		@point_adjustments = PointAdjustment.order("id desc").limit(5)
 	end
 	
 	def show
