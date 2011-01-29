@@ -1,6 +1,6 @@
 class RaidEventsController < ApplicationController
 	
-	before_filter :require_logged_in
+	before_filter :require_logged_in, :except => [:summary]
 	
 	def summary
 	  @point_adjustments = PointAdjustment.order("id desc").limit(5)
