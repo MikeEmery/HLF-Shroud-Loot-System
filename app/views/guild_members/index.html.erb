@@ -15,7 +15,27 @@
 		})
 		
 		$('.show_link').click(function() {
-			$('#explanation').show()
+			$('#explanation').slideDown()
+		})
+		
+		$('.attended').change(function() {
+			var count = $('.attended:checked').length;
+			$('#attended_count').html(count)
+		})
+		
+		$('.on_time').change(function () {
+			var count = $('.on_time:checked').length
+			$('#on_time_count').html(count)
+		})
+		
+		$('.left_early').change(function() {
+			var count = $('.left_early:checked').length
+			$('#left_early_count').html(count)
+		})
+		
+		$('.bid').change(function() {
+			var count = $('.bid:checked').length
+			$('#bid_count').html(count)
 		})
 		
 		$.PeriodicalUpdater('<%= summary_raid_events_path %>', {
@@ -44,13 +64,23 @@ $(function() {
 	<tr class="member_row">
 		<td><span class="member_name"><%= link_to member.name, guild_member_path(member) %></span></td>
 		<td><span class="member_points"><%= member.points %></span></td>
-		<td><input type="checkbox" value="<%=member.name%>" name="attended[]" class="attendend"/></td>
-		<td><input type="checkbox" value="<%=member.name%>" name="on_time[]" class="attended"/></td>
-		<td><input type="checkbox" value="<%=member.name%>" name="left_early[]" class="attended"/></td>
+		<td><input type="checkbox" value="<%=member.name%>" name="attended[]" class="attended"/></td>
+		<td><input type="checkbox" value="<%=member.name%>" name="on_time[]" class="on_time"/></td>
+		<td><input type="checkbox" value="<%=member.name%>" name="left_early[]" class="left_early"/></td>
 		<td>
 			<input type="radio" value="lfc" name="bids[<%=member.name%>]" class="bid">LFC
 			<input type="radio" value="half" name="bids[<%=member.name%>]" class="bid">Half
 		</td>
+	</tr>
+	<% end %>
+	<% if logged_in? %>
+	<tr>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td><span id="attended_count">0</span></td>
+		<td><span id="on_time_count">0</span></td>
+		<td><span id="left_early_count">0</span></td>
+		<td><span id="bid_count">0</span></td>
 	</tr>
 	<% end %>
 </table>
