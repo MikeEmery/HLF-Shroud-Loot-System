@@ -11,6 +11,7 @@
   <body>
     <div id="container">
 			<div style="float:right;">
+				<%= link_to("Sign Up", new_account_path) unless logged_in? %>
 				<%= link_to("Log In", new_session_path) unless logged_in? %>
 				<%= link_to("Log Out", end_session_path) if logged_in? %>
 			</div>

@@ -1,0 +1,16 @@
+<%= form_for @user, :url => account_path do |f| %>
+<%= f.error_messages %>
+<div>
+	<%= f.label :login, "Character Name" %>
+	<%= f.text_field :login%>
+</div>
+<div>
+	<%= f.label :password %>
+	<%= f.password_field :password, :value => "" %>
+</div>
+<div>
+	<%= f.label :password_confirmation %>
+	<%= f.password_field :password_confirmation, :value => "" %>
+</div>
+<%= f.submit "Create Account" %>
+<% end %>
