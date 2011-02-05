@@ -56,6 +56,8 @@ Hlf::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 
+  resource :account
+
 	resources :guild_members
 	resources :raid_events do
 	  collection do 

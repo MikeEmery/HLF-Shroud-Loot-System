@@ -23,7 +23,7 @@
 			type: 'script'
 		})
 	})
-<% unless logged_in? %>
+<% unless admin? %>
 $(function() {
 	$('input').attr('disabled', 'disabled');
 })
@@ -43,7 +43,11 @@ $(function() {
 	<% @guild_members.each do |member|%>
 	<tr class="member_row">
 		<td><span class="member_name"><%= link_to member.name, guild_member_path(member) %></span></td>
-		<td><span class="member_points"><%= member.points %></span></td>
+		<td>
+			<span class="member_points">
+				<%= member_points(member)%>
+			</span>
+		</td>
 		<td><input type="checkbox" value="<%=member.name%>" name="attended[]" class="attendend"/></td>
 		<td><input type="checkbox" value="<%=member.name%>" name="on_time[]" class="attended"/></td>
 		<td><input type="checkbox" value="<%=member.name%>" name="left_early[]" class="attended"/></td>
@@ -58,13 +62,13 @@ $(function() {
 <div id="raid_event_summary">
 	<%= render :partial => 'raid_events/point_adjustment_summary', :object => @point_adjustments%>
 </div>
-<% if logged_in? %>
+<% if admin? %>
 <div>
 <%= submit_tag "Update", :style => "float:right"%>
 </div>
 <% end %>
 </form>
-<% if logged_in? %>
+<% if admin? %>
 <div>
 	<%= form_for GuildMember.new do |f| %>
 	<div>
