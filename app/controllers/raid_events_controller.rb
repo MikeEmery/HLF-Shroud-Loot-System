@@ -16,6 +16,7 @@ class RaidEventsController < ApplicationController
 		params[:attended] ||= []
 		params[:on_time] ||= []
 		params[:left_early] ||= []
+		params[:standby] ||= []
 		params[:bids] ||= {}
 		
 		params[:attended].each do |name|
@@ -27,6 +28,11 @@ class RaidEventsController < ApplicationController
 			member = GuildMember.find_by_name(name)
 			member.left_early
 		end
+		
+		params[:standby].each do |name|
+		  member = GuildMember.find_by_name(name)
+		  member.standby
+	  end
 		
 		params[:on_time].each do |name|
 			member = GuildMember.find_by_name(name)

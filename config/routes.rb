@@ -57,6 +57,8 @@ Hlf::Application.routes.draw do
   # match ':controller(/:action(/:id(.:format)))'
 
   resource :account
+  
+  resource :point_adjustments
 
 	resources :guild_members
 	resources :raid_events do
