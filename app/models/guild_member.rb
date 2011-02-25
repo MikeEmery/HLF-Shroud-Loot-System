@@ -27,4 +27,10 @@ class GuildMember < ActiveRecord::Base
 		self.decrement!(:points, current_high)
 		self.point_adjustments.create(:reason => "Won item", :amount => -current_high, :comments => comments )
 	end
+	
+	def standby
+	  amount = 5
+	  self.increment!(:points, amount)
+	  self.point_adjustments.create(:reason => "Standby", :amount => amount)
+  end
 end

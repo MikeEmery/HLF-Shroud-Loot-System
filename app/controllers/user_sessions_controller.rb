@@ -5,8 +5,10 @@ class UserSessionsController < ApplicationController
   
   def create
     @user_session = UserSession.new(params[:user_session])
+    guild_member = GuildMember.find_by_name(@user_session.login)
+    
     if @user_session.save
-      redirect_back_or_default guild_members_url
+      redirect_back_or_default guild_member_url(guild_member)
     else
 			flash[:error] = "Incorrect password"
       render :action => :new
