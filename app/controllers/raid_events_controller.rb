@@ -50,7 +50,7 @@ class RaidEventsController < ApplicationController
 			elsif(bid_type == "half")
 				
 				next if member.points <= 0
-				bid_points = (member.points / 2).ceil
+				bid_points = (member.points / 2.0).ceil
 			end
 			
 			bids[member.name] = bid_points
