@@ -33,6 +33,7 @@
 <% end %>
 <% end %>
 
+<h3>Point Adjustments (Most Recent First)</h3>
 <table>
 <tr>
 	<th>Reason</th>
@@ -40,7 +41,7 @@
 	<th>Date</th>
 	<th>Rolls</th>
 </tr>
-<% @point_adjustments.each do |adj| %>
+<% @point_adjustments.order('id desc').each do |adj| %>
 <tr>
 	<td><%= adj.reason %></td>
 	<td><%= points(adj) %></td>
