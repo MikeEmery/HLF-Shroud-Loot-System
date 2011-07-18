@@ -88,7 +88,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "helvetica neue", Helvetica, arial, sans-serif; }
 
 /* Success, error & notice boxes for messages and errors. */
-div.error, div.notice, div.success,
+div.error, div.notice, div.success, div.error_messages,
 #flash_failure, #flash_success, #flash_notice {
   border: 1px solid #ddd;
   -moz-border-radius: 8px;
@@ -96,7 +96,7 @@ div.error, div.notice, div.success,
   margin-bottom: 1em;
   padding: 0.8em; }
 
-div.error,
+div.error, div.error_messages,
 #flash_failure {
   background: #FBE3E4;
   border-color: #FBC2C4;
