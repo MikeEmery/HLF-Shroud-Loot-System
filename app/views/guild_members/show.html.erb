@@ -1,4 +1,5 @@
 <% title "Point Adjustment History for #{@guild_member.name}"%>
+
 <% if admin? %>
 <%= form_for PointAdjustment.new(:guild_member => @guild_member) do |f| %>
 <fieldset>
@@ -17,7 +18,21 @@
 </fieldset>
 <%= f.hidden_field :guild_member_id%>
 <% end %>
+
+<%= form_for @guild_member do |f| %>
+<fieldset>
+	<legend>Member Configuration</legend>
+	<div>
+		<%= f.label :active %>
+		<%= f.check_box :active %>
+	</div>
+	<div>
+		<%= f.submit "Update" %>
+	</div>
+</fieldset>
 <% end %>
+<% end %>
+
 <table>
 <tr>
 	<th>Reason</th>

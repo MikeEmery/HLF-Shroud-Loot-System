@@ -107,7 +107,9 @@ $(function() {
 <% end %>
 </form>
 <% if admin? %>
-<div>
+<div style="clear:both"></div>
+<fieldset>
+	<legend>New Member</legend>
 	<%= form_for GuildMember.new do |f| %>
 	<div>
 		<%= f.label :name %>
@@ -115,8 +117,18 @@ $(function() {
 		<%= submit_tag "Add"%>
 	</div>
 	<% end %>
-</div>
+</fieldset>
+
+<fieldset>
+	<legend>Inactive Members</legend>
+	<% @inactive_members.each do |member| %>
+		<%= link_to member.name, guild_member_path(member) %>&nbsp;
+	<% end %>
+</fieldset>
+
+
 <% end %>
+
 <a href="#" class="show_link">How does this work?</a>
 <div id="explanation" style="display:none">
 <p>

@@ -10,13 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110205015024) do
+ActiveRecord::Schema.define(:version => 20110718040023) do
 
   create_table "guild_members", :force => true do |t|
     t.string   "name"
     t.integer  "points",     :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "active",     :default => true
   end
 
   create_table "point_adjustments", :force => true do |t|

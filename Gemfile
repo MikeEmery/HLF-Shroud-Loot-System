@@ -1,15 +1,20 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
+gem 'rails', '3.0.9'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
-gem "nifty-generators", :group => :development
-gem "flutie", "~> 1.1"
+gem 'flutie', '~> 1.1'
 gem 'jquery-rails', '>= 0.2.6'
-gem 'authlogic', :git => 'git://github.com/binarylogic/authlogic.git'
+gem 'authlogic'
+gem 'mysql2', '~> 0.2.7'
+gem 'formtastic', '2.0.0.rc1'
+
+group :development do
+	gem 'nifty-generators'
+	gem 'thin'
+end
 
 # Use unicorn as the web server
 # gem 'unicorn'
