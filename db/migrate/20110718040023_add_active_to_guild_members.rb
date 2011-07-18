@@ -1,6 +1,6 @@
 class AddActiveToGuildMembers < ActiveRecord::Migration
   def self.up
-		add_column :guild_members, :active, :boolean, :default => true
+		add_column :guild_members, :active, :boolean, :null => false, :default => true
   end
 
   def self.down
