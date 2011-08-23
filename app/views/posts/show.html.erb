@@ -13,6 +13,7 @@
 </div>
 <% end %>
 <hr/>
+<% if logged_in? %>
 <h3>New Comment</h3>
 <%= form_for @post.comments.build do |f| %>
 <div>
@@ -20,4 +21,5 @@
 </div>
 <%= f.hidden_field :post_id %>
 <%= f.submit "Add Comment" %>
+<% end %>
 <% end %>
