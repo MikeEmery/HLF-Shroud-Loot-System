@@ -1,0 +1,11 @@
+<% title "News Posts" %>
+<div style="padding-bottom: 1em">
+	<%= link_to "New Post", new_post_path %>
+</div>
+<div>
+<% Post.order('created_at desc').each do |post| %>
+	<div>
+		<h3><%= link_to post.title, post %></h3>
+	</div>
+<% end %>
+</div>

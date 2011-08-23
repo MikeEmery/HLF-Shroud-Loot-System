@@ -60,6 +60,10 @@ Hlf::Application.routes.draw do
   
   resource :point_adjustments
 
+	resources :posts
+	
+	resources :comments
+
 	resources :guild_members
 	resources :raid_events do
 	  collection do 

@@ -1,0 +1,23 @@
+<% title @post.title %>
+<fieldset>
+	<legend>by <%= @post.user.login %></legend>
+	<%= @post.parsed_body %>
+</fieldset>
+<h3>Comments</h3>
+<% @post.comments.each do |comment| %>
+<div>
+	<h4><%= comment.user.login %> at <%= comment.created_at.utc %>:</h4>
+	<div>
+		<%= comment.parsed_body %>
+	</div>
+</div>
+<% end %>
+<hr/>
+<h3>New Comment</h3>
+<%= form_for @post.comments.build do |f| %>
+<div>
+	<%= f.text_area :body %>
+</div>
+<%= f.hidden_field :post_id %>
+<%= f.submit "Add Comment" %>
+<% end %>

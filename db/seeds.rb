@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+GuildMember.create(:name => 'Interslice')
+User.create(:login => 'Interslice', :password => 'test', :password_confirmation => 'test', :is_admin => true)

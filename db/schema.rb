@@ -10,14 +10,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110718040023) do
+ActiveRecord::Schema.define(:version => 20110823053219) do
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "guild_members", :force => true do |t|
     t.string   "name"
     t.integer  "points",     :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "active",     :default => true
+    t.boolean  "active",     :default => true, :null => false
   end
 
   create_table "point_adjustments", :force => true do |t|
@@ -27,6 +35,14 @@ ActiveRecord::Schema.define(:version => 20110718040023) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "comments"
+  end
+
+  create_table "posts", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
