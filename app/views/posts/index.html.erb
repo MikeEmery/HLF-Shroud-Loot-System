@@ -1,8 +1,10 @@
 <% title "News Posts" %>
-<div style="padding-bottom: 1em">
+<% if logged_in? %>
+<div>
 	<%= link_to "New Post", new_post_path %>
 </div>
-<div>
+<% end %>
+<div style="padding-top: 1em">
 <% Post.order('created_at desc').each do |post| %>
 	<div>
 		<h3><%= link_to post.title, post %></h3>
