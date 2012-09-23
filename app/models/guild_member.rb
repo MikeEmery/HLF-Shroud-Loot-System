@@ -5,7 +5,23 @@ class GuildMember < ActiveRecord::Base
 	validates_presence_of :name
 	validates_uniqueness_of :name
 	
-	scope :active, where(:active => true)  
+	scope :active, where(:active => true)
+	
+	def is_admin=(value)
+	  login_account.update_attribute(:is_admin, value)
+  end
+  
+  def is_admin
+    login_account.is_admin
+  end
+  
+  def login_account
+    @login_account ||= User.where('login ILIKE ?', self.name).first
+  end
+	
+	def login_user
+	  User.where('login ILIKE ?', self.name).first
+	end
 	
 	def left_early
 		amount = 5

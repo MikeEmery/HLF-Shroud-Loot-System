@@ -1,4 +1,5 @@
 class AccountsController < ApplicationController
+  
   def new
     @user = User.new
   end

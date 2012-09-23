@@ -8,7 +8,7 @@ gem 'rails', '3.0.9'
 gem 'flutie', '~> 1.1'
 gem 'jquery-rails', '>= 0.2.6'
 gem 'authlogic'
-gem 'mysql2', '~> 0.2.7'
+gem 'pg'
 gem 'formtastic', '2.0.0.rc1'
 gem 'rbbcode'
 

@@ -63,6 +63,8 @@ Hlf::Application.routes.draw do
 	resources :posts
 	
 	resources :comments
+	
+	resources :users
 
 	resources :guild_members
 	resources :raid_events do
